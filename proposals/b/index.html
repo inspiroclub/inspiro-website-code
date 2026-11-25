@@ -6,18 +6,25 @@
 <title>Inspiro proposal B</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&display=swap" rel="stylesheet">
 <style>
 /* VOICE warm occasion: a neighbourhood club where you are expected
    IDEA the Hub's own noticeboard: events pinned as ticket stubs beside real photos
    PICTURE a photo mosaic with the next ticket pinned into it; tickets carry dates
-   COLOUR white ground, plum ink, Inspiro purple, sunflower (the party bunting), lilac and mint fields
-   TYPE Bricolage Grotesque 800 (brand) + Figtree for text
+   COLOUR from Figma inspiro-brand: cream ground #F8EDE5, purple #690C98; warm accent switchable (Figma orange / softened / Figma poster yellow);
+          lilac, green and blue fields are light tints of the Figma purple, green #027A3C and blue #004AF8
+   TYPE Bricolage Grotesque only, as in Figma: 800 (ExtraBold) headlines at -3% tracking, 400-600 text
    LAYOUT mosaic grid on laptop, one stacked column on phone: headline tile, photo, ticket */
-:root{color-scheme:light;--bg:#fff;--ink:#24152f;--soft:#5f5169;--pu:#672d93;--pu2:#4f1f73;--sun:#ffd457;--sunD:#8a6100;--lil:#efe6fa;--mint:#dcf2e6;--line:#e8e0f0}
+:root{color-scheme:light;--bg:#F8EDE5;--card:#fff;--ink:#24152f;--soft:#5C4F66;--pu:#690C98;--pu2:#4D0771;--lil:#F3EAFC;--mint:#D8F3DE;--sky:#E1ECFF;--line:#E7DAE6;
+ --sun:#FCA676;--sunL:#FEEADF;--onSun:#3d2a12}
+/* warm-accent options for review; the switch lives in the top banner */
+html[data-pal=orange]{--sun:#F34900;--sunL:#FEE9E3;--onSun:#24152f}
+html[data-pal=coral]{--sun:#FEAD95;--sunL:#FEE9E3;--onSun:#3d2a12}
+html[data-pal=apricot]{--sun:#FCA676;--sunL:#FEEADF;--onSun:#3d2a12}
+html[data-pal=yellow]{--sun:#FFDE59;--sunL:#FBF2D0;--onSun:#3d2a12}
 *{box-sizing:border-box;min-width:0}
 html{scroll-padding-top:80px}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Figtree",system-ui,sans-serif;overflow-x:clip}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Bricolage Grotesque",system-ui,sans-serif;font-optical-sizing:auto;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:var(--pu)}
 h1,h2,h3,.btn,.tk-d,.big,.price{font-family:"Bricolage Grotesque",system-ui,sans-serif}
@@ -28,14 +35,14 @@ p{margin:0 0 12px}
 .lead{font-size:clamp(18px,2vw,21px);color:var(--soft);max-width:36em}
 .wide{max-width:1180px;margin:0 auto;padding:0 max(5vw,16px)}
 .band{padding-block:clamp(36px,6vw,84px)}
-header{position:sticky;top:0;z-index:5;background:#fffffff2;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header{position:sticky;top:0;z-index:5;background:#F8EDE5f2;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;gap:16px;max-width:1180px;margin:0 auto;padding:10px max(5vw,16px)}
 .bar img{height:30px;width:auto}
 nav{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;font-weight:600;font-size:15px}
 nav a{color:var(--ink);text-decoration:none;padding:10px 14px;border-radius:999px}
 nav a[aria-current]{background:var(--sun)}
 .lang{font-weight:600;font-size:14px;border-radius:999px;padding:8px 12px;background:var(--lil);white-space:nowrap}
-.menu{display:none;margin-left:auto;font:600 15px "Figtree",sans-serif;background:var(--lil);border:0;border-radius:999px;padding:10px 16px;color:var(--ink)}
+.menu{display:none;margin-left:auto;font:600 15px "Bricolage Grotesque",sans-serif;background:var(--lil);border:0;border-radius:999px;padding:10px 16px;color:var(--ink)}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:14px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer}
 .btn.p{background:var(--pu);color:#fff;box-shadow:0 3px 0 var(--pu2)}
 .btn.p:active{transform:translateY(2px);box-shadow:0 1px 0 var(--pu2)}
@@ -48,7 +55,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 /* hero mosaic */
 .mosaic{display:grid;grid-template-columns:1.15fr 1fr .85fr;grid-template-rows:auto auto;gap:14px;margin-top:20px}
 .t-sun{background:var(--sun);border-radius:22px;padding:clamp(22px,3vw,36px);grid-row:span 2;display:flex;flex-direction:column;justify-content:flex-end}
-.t-sun .lead{color:#3d2a12}
+.t-sun .lead{color:var(--onSun)}
 .m1{grid-row:span 2;min-height:420px}
 .t-mint{background:var(--mint);border-radius:22px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
 .big{font-size:clamp(54px,7vw,86px);font-weight:800;line-height:.9;color:var(--pu);letter-spacing:-.04em}
@@ -63,7 +70,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .tk-b p{font-size:15px;color:var(--soft);margin:0 0 10px}
 .tk-b .when{font-weight:600;color:var(--ink);font-size:15px;margin-bottom:4px}
 .tk-b a{font-weight:700;text-decoration:none}
-.tk.fam .tk-d{background:var(--mint)}.tk.work .tk-d{background:#fff1c7}.tk.week .tk-d{background:#f6f0fb}
+.tk.fam .tk-d{background:var(--mint)}.tk.work .tk-d{background:var(--sunL)}.tk.week .tk-d{background:var(--sky)}
 .rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(290px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 2px 18px}
 .rail>*{scroll-snap-align:start}
 .railnav{display:flex;gap:8px;margin-left:auto}
@@ -82,16 +89,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .found{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,56px);align-items:center}
 .found .ph{aspect-ratio:4/5;transform:rotate(-1.5deg)}
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
-.chip{border:0;background:var(--lil);border-radius:999px;padding:10px 16px;font:600 15px "Figtree",sans-serif;cursor:pointer;color:var(--ink);min-height:44px}
+.chip{border:0;background:var(--lil);border-radius:999px;padding:10px 16px;font:600 15px "Bricolage Grotesque",sans-serif;cursor:pointer;color:var(--ink);min-height:44px}
 .chip[aria-pressed=true]{background:var(--ink);color:#fff}
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .pastg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.past{border-radius:16px;background:#f8f5fb;padding:16px;text-decoration:none;color:var(--ink);display:block}
+.past{border-radius:16px;background:var(--card);padding:16px;text-decoration:none;color:var(--ink);display:block}
 .past b{font:800 22px "Bricolage Grotesque",sans-serif;color:var(--pu)}
 .past span{display:block;font-size:14px;color:var(--soft)}
 .past h3{font-size:17px;margin-top:6px}
 .pager{display:flex;gap:8px;justify-content:center;margin-top:22px;flex-wrap:wrap}
-.pager button{min-width:44px;min-height:44px;border-radius:12px;border:0;background:var(--lil);font:700 15px "Figtree",sans-serif;cursor:pointer;color:var(--ink)}
+.pager button{min-width:44px;min-height:44px;border-radius:12px;border:0;background:var(--lil);font:700 15px "Bricolage Grotesque",sans-serif;cursor:pointer;color:var(--ink)}
 .pager button[aria-current]{background:var(--pu);color:#fff}
 .pager button:disabled{opacity:.35;cursor:default}
 .ev{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:20px;align-items:start}
@@ -104,10 +111,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .card dd{margin:0;font-weight:600}
 .find{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
 .fc{border-radius:22px;padding:24px}
-.fc:nth-child(1){background:var(--mint)}.fc:nth-child(2){background:var(--sun)}.fc:nth-child(3){background:var(--lil)}.fc:nth-child(4){background:#f6f2ea}
+.fc:nth-child(1){background:var(--mint)}.fc:nth-child(2){background:var(--sun)}.fc:nth-child(3){background:var(--lil)}.fc:nth-child(4){background:var(--sky)}
 .fc .big{font-size:clamp(44px,5vw,64px);margin-bottom:6px}
 .fc .src{font-size:14px;color:var(--soft);margin:0}
-.note{font-size:15px;color:var(--soft);background:#fff8e1;border-radius:14px;padding:14px 16px;margin-top:18px}
+.note{font-size:15px;color:var(--onSun);background:var(--sunL);border-radius:14px;padding:14px 16px;margin-top:18px}
 .cohero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:8px}
 .cohero .t-mint{padding:clamp(24px,3vw,40px)}
 .ribbon{display:flex;height:56px;border-radius:14px;overflow:hidden;margin:22px 0 8px;box-shadow:0 0 0 1.5px var(--ink)}
@@ -139,7 +146,7 @@ ul.ticks li{margin-bottom:6px}
 .facts span{font-size:14px;color:var(--soft)}
 form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
 label{font-weight:600;font-size:15px;display:grid;gap:6px}
-input,select{font:16px "Figtree",sans-serif;padding:12px 14px;border:1.5px solid #cdbfdb;border-radius:12px;background:#fff;color:var(--ink);min-height:48px}
+input,select{font:16px "Bricolage Grotesque",sans-serif;padding:12px 14px;border:1.5px solid #CDBFDB;border-radius:12px;background:#fff;color:var(--ink);min-height:48px}
 form .full{grid-column:1/-1}
 .ok{display:none;margin-top:12px;font-weight:700;color:var(--pu)}
 footer{background:var(--ink);color:#fff;padding:44px 0 28px}
@@ -147,18 +154,21 @@ footer{background:var(--lil);color:var(--ink)}
 .fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
 footer h3{font-size:16px}
 footer a{color:var(--ink);text-decoration:none;display:block;padding:4px 0}
-.legal{border-top:1px solid #d9cce6;margin-top:24px;padding-top:16px;font-size:14px;color:var(--soft);display:flex;gap:16px;flex-wrap:wrap}
+.legal{border-top:1px solid #D9CCE6;margin-top:24px;padding-top:16px;font-size:14px;color:var(--soft);display:flex;gap:16px;flex-wrap:wrap}
 .legal a{display:inline;color:var(--soft)}
-.sample{font-size:13px;font-weight:500;color:var(--soft);text-align:center;padding:10px;background:#fff8e1}
+.sample{font-size:13px;font-weight:500;color:var(--soft);text-align:center;padding:8px 10px;background:#fff;display:flex;gap:8px 14px;justify-content:center;align-items:center;flex-wrap:wrap}
+.pal{display:inline-flex;gap:6px;flex-wrap:wrap}.pal button{font:600 13px "Bricolage Grotesque",sans-serif;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 10px 5px 6px;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:6px;min-height:32px}.pal i{width:16px;height:16px;border-radius:50%;display:inline-block}.pal button[aria-pressed=true]{border-color:var(--ink)}
+.prices .hl .meta,.prices .hl .price small,.fc:nth-child(2) .src,.way:nth-child(1) .meta{color:var(--onSun)}
 section[data-page]{display:none}
 section[data-page].on{display:block}
-@media(max-width:900px){nav{display:none}nav.open{display:flex;position:absolute;left:0;right:0;top:100%;background:#fff;flex-direction:column;padding:8px max(5vw,16px) 16px;border-bottom:1px solid var(--line)}.menu{display:block}.mosaic{grid-template-columns:1fr 1fr}.t-sun{grid-column:span 2;grid-row:auto}.m1{grid-row:auto;min-height:300px}.ways,.corp{grid-template-columns:minmax(0,1fr)}.pastg{grid-template-columns:repeat(2,minmax(0,1fr))}.ev,.found,.cohero{grid-template-columns:minmax(0,1fr)}.card{position:static}.prices{grid-template-columns:repeat(2,minmax(0,1fr))}.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){nav{display:none}nav.open{display:flex;position:absolute;left:0;right:0;top:100%;background:var(--bg);flex-direction:column;padding:8px max(5vw,16px) 16px;border-bottom:1px solid var(--line)}.menu{display:block}.mosaic{grid-template-columns:1fr 1fr}.t-sun{grid-column:span 2;grid-row:auto}.m1{grid-row:auto;min-height:300px}.ways,.corp{grid-template-columns:minmax(0,1fr)}.pastg{grid-template-columns:repeat(2,minmax(0,1fr))}.ev,.found,.cohero{grid-template-columns:minmax(0,1fr)}.card{position:static}.prices{grid-template-columns:repeat(2,minmax(0,1fr))}.fgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.mosaic{grid-template-columns:minmax(0,1fr)}.t-sun{grid-column:auto}.mosaic .ph.m2{display:none}.spa,.grid2,.find,.facts{grid-template-columns:minmax(0,1fr)}.sched{columns:1}.ribbon div span{display:none}.prices{grid-template-columns:minmax(0,1fr)}form{grid-template-columns:minmax(0,1fr)}.fgrid{grid-template-columns:minmax(0,1fr)}.tk{grid-template-columns:76px minmax(0,1fr)}.tk::before,.tk::after{left:68px}.tk-d b{font-size:30px}}
 @media(prefers-reduced-motion:no-preference){.pin{animation:pin .7s cubic-bezier(.2,.9,.3,1.3) .3s both}@keyframes pin{from{transform:translateY(-14px) rotate(-3deg);opacity:0}to{transform:none;opacity:1}}}
 </style>
 </head>
 <body>
-<div class="sample">Design proposal B, "Warm community". Upcoming dates come from the autumn plan; prices and quotes are examples to confirm.</div>
+<div class="sample"><span>Proposal B, Figma colours and type. Dates from the autumn plan; prices and quotes are examples.</span><span class="pal" role="group" aria-label="Warm accent"><b style="font-weight:600">Warm accent:</b>
+<button data-p="orange"><i style="background:#F34900"></i>Figma orange</button><button data-p="coral"><i style="background:#FEAD95"></i>Orange, softened</button><button data-p="apricot"><i style="background:#FCA676"></i>Apricot</button><button data-p="yellow"><i style="background:#FFDE59"></i>Figma yellow</button></span></div>
 <header>
  <div class="bar">
   <a href="#home" aria-label="Inspiro home"><img src="img/inspiro-logo.png" alt="Inspiro"></a>
@@ -188,9 +198,9 @@ section[data-page].on{display:block}
    <h2>The Phone Spa</h2>
    <p class="lead">Your phone gets an evening off too. Three steps, no apps.</p>
    <div class="spa">
-    <div><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#ffd457"/><path d="M17 33c3 5 19 5 22 0" stroke="#24152f" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="21" cy="23" r="3" fill="#24152f"/><circle cx="35" cy="23" r="3" fill="#24152f"/></svg><h3>Arrive, say hello</h3><p class="meta">Someone from the team meets you at the door.</p></div>
-    <div><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="24" width="44" height="26" rx="6" fill="#672d93"/><rect x="18" y="6" width="20" height="30" rx="4" fill="#fff" stroke="#24152f" stroke-width="2.5"/><path d="M6 32h44" stroke="#4f1f73" stroke-width="3"/></svg><h3>Phone into the Spa</h3><p class="meta">A box by the entrance, on silent. Expecting an urgent call? Tell us.</p></div>
-    <div><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#dcf2e6"/><path d="M16 29l8 8 16-17" stroke="#24152f" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Collect it on the way out</h3><p class="meta">It waits on silent the whole evening.</p></div>
+    <div><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" style="fill:var(--sun)"/><path d="M17 33c3 5 19 5 22 0" stroke="#24152f" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="21" cy="23" r="3" fill="#24152f"/><circle cx="35" cy="23" r="3" fill="#24152f"/></svg><h3>Arrive, say hello</h3><p class="meta">Someone from the team meets you at the door.</p></div>
+    <div><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="24" width="44" height="26" rx="6" style="fill:var(--pu)"/><rect x="18" y="6" width="20" height="30" rx="4" fill="#fff" stroke="#24152f" stroke-width="2.5"/><path d="M6 32h44" style="stroke:var(--pu2)" stroke-width="3"/></svg><h3>Phone into the Spa</h3><p class="meta">A box by the entrance, on silent. Expecting an urgent call? Tell us.</p></div>
+    <div><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" style="fill:var(--mint)"/><path d="M16 29l8 8 16-17" stroke="#24152f" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Collect it on the way out</h3><p class="meta">It waits on silent the whole evening.</p></div>
    </div>
   </div>
  </div>
@@ -288,7 +298,7 @@ section[data-page].on{display:block}
     <div class="tk"><div class="tk-b"><div class="meta">Half day</div><div class="price">60 <small>lei</small></div></div></div>
     <div class="tk"><div class="tk-b"><div class="meta">Full day</div><div class="price">90 <small>lei</small></div></div></div>
     <div class="tk"><div class="tk-b"><div class="meta">Unlimited month</div><div class="price">900 <small>lei</small></div></div></div>
-    <div class="tk hl"><div class="tk-b"><div class="meta" style="color:#3d2a12">Founding member, 3 seats</div><div class="price">750 <small>lei / month</small></div><p style="margin:4px 0 0;font-size:14px">Fixed for 6 months, with a host party pass.</p></div></div>
+    <div class="tk hl"><div class="tk-b"><div class="meta">Founding member, 3 seats</div><div class="price">750 <small>lei / month</small></div><p style="margin:4px 0 0;font-size:14px">Fixed for 6 months, with a host party pass.</p></div></div>
    </div>
    <h3 style="margin-top:26px">Included</h3>
    <ul class="ticks"><li>Speciality coffee and plenty of tea</li><li>Internet, printer and a quiet call room</li><li>Garden and the outdoor gazebo</li></ul>
@@ -384,6 +394,12 @@ $('menu').addEventListener('click',()=>{const o=$('nav').classList.toggle('open'
 const ok=(f,m)=>$(f).addEventListener('submit',e=>{e.preventDefault();$(m).style.display='block'});
 ok('news','newsOk');ok('req','reqOk');
 }
+</script>
+<script>
+(function(){var h=document.documentElement,bs=document.querySelectorAll('.pal button');
+function set(p){h.setAttribute('data-pal',p);bs.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.p===p)});try{localStorage.setItem('pal',p)}catch(e){}}
+var p='apricot';try{p=new URLSearchParams(location.search).get('pal')||localStorage.getItem('pal')||p}catch(e){}
+bs.forEach(function(b){b.onclick=function(){set(b.dataset.p)}});set(p)})();
 </script>
 </body>
 </html>
