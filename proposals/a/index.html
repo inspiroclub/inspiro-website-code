@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inspiro proposal A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday and calm: a club that gives you an evening back
+   IDEA a printed club programme, one thing per page, big type, wide margins
+   PICTURE real Hub photographs cropped wide, one per screen, never collaged
+   COLOUR white ground, plum ink, Inspiro purple, lavender field, curtain-mustard accent
+   TYPE Bricolage Grotesque (brand) for headings, Newsreader for reading
+   LAYOUT one 680px reading column with photos breaking out to 1120px; phone: title, photo, action */
+:root{color-scheme:light;--bg:#fff;--ink:#1f1527;--soft:#5c4f66;--pu:#672d93;--pu2:#4f1f73;--field:#f4eefa;--sun:#e9b23f;--line:#e6dfee}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 "Newsreader",Georgia,serif;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:var(--pu)}
+h1,h2,h3,.brand,.btn,nav,.meta,.lab,.chip,.price,.time{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+h1{font-size:clamp(44px,8vw,88px);line-height:1;letter-spacing:-.03em;font-weight:700;margin:0 0 20px;text-wrap:balance}
+h2{font-size:clamp(30px,4.4vw,46px);line-height:1.05;letter-spacing:-.02em;font-weight:700;margin:0 0 16px;text-wrap:balance}
+h3{font-size:22px;line-height:1.2;font-weight:700;margin:0 0 6px}
+p{margin:0 0 14px}
+.lead{font-size:clamp(19px,2.2vw,23px);color:var(--soft);max-width:34em}
+.wrap{max-width:680px;margin:0 auto;padding:0 max(5vw,18px)}
+.wide{max-width:1120px;margin:0 auto;padding:0 max(5vw,18px)}
+.band{padding-block:clamp(40px,7vw,96px)}
+.field{background:var(--field)}
+header{position:sticky;top:0;z-index:5;background:#fffffff0;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:18px;max-width:1120px;margin:0 auto;padding:12px max(5vw,18px)}
+.bar img{height:30px;width:auto}
+nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;font-size:15px}
+nav a{color:var(--ink);text-decoration:none;padding:10px 12px;border-radius:8px}
+nav a[aria-current]{background:var(--field);color:var(--pu)}
+.lang{font:600 14px "Bricolage Grotesque",sans-serif;border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--soft);white-space:nowrap}
+.menu{display:none;margin-left:auto;font:600 15px "Bricolage Grotesque",sans-serif;background:none;border:1px solid var(--line);border-radius:8px;padding:10px 14px;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid var(--pu);cursor:pointer}
+.btn.p{background:var(--pu);color:#fff}
+.btn.p:hover{background:var(--pu2)}
+.btn.g{background:transparent;color:var(--pu)}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.photo{border-radius:20px;overflow:hidden;background:var(--field)}
+.photo img{width:100%;height:100%;object-fit:cover}
+.hero .photo{aspect-ratio:16/8;margin-top:40px}
+.cap{font-size:14px;color:var(--soft);margin-top:8px}
+.meta{font-size:15px;color:var(--soft)}
+.lab{font-size:15px;font-weight:600;color:var(--pu)}
+/* programme list: big hanging dates */
+.prog{list-style:none;margin:24px 0 0;padding:0;border-top:2px solid var(--ink)}
+.prog li{display:grid;grid-template-columns:5.5em minmax(0,1fr) auto;gap:16px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start}
+.day{font:700 34px/1 "Bricolage Grotesque",sans-serif;color:var(--pu)}
+.day small{display:block;font-size:14px;font-weight:500;color:var(--soft);margin-top:6px}
+.prog p{font-size:16px;color:var(--soft);margin:0}
+.prog .btn{min-height:44px;font-size:15px}
+.steps{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:22px}
+.steps li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px}
+.n{width:48px;height:48px;border-radius:50%;background:var(--pu);color:#fff;font:700 20px/48px "Bricolage Grotesque",sans-serif;text-align:center}
+.three{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.three .photo{aspect-ratio:4/5;margin-bottom:14px}
+.three a{color:var(--ink);text-decoration:none}
+.three a:hover h3{color:var(--pu)}
+.split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center}
+.big{font:700 clamp(64px,11vw,120px)/.9 "Bricolage Grotesque",sans-serif;color:var(--pu);letter-spacing:-.04em}
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:28px}
+.strip .photo{aspect-ratio:1;border-radius:12px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 8px}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 16px;font-size:15px;cursor:pointer;color:var(--ink);min-height:44px}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pager{display:flex;gap:8px;align-items:center;justify-content:center;margin-top:28px;font:600 15px "Bricolage Grotesque",sans-serif}
+.pager button{min-width:44px;min-height:44px;border-radius:10px;border:1px solid var(--line);background:#fff;font:inherit;cursor:pointer;color:var(--ink)}
+.pager button[aria-current]{background:var(--pu);color:#fff;border-color:var(--pu)}
+.pager button:disabled{opacity:.35;cursor:default}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:28px 0}
+.facts div{background:#fff;padding:16px 18px}
+.facts b{display:block;font:700 19px "Bricolage Grotesque",sans-serif}
+.facts span{font-size:15px;color:var(--soft)}
+.gal{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:10px;height:clamp(320px,52vw,560px)}
+.gal .photo:first-child{grid-row:span 2}
+.finding{border-top:2px solid var(--ink);padding:22px 0 26px;display:grid;grid-template-columns:9em minmax(0,1fr);gap:20px}
+.finding .num{font:700 40px/1 "Bricolage Grotesque",sans-serif;color:var(--pu)}
+.finding .num small{display:block;font-size:15px;font-weight:500;color:var(--soft);margin-top:6px}
+.src{font-size:15px;color:var(--soft)}
+.note{font-size:15px;color:var(--soft);border-left:3px solid var(--sun);padding-left:14px}
+.sched{list-style:none;margin:24px 0 0;padding:0}
+.sched li{display:grid;grid-template-columns:7.5em minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.sched .time{font-weight:700;font-size:20px;white-space:nowrap}
+.sched .blk{background:var(--field);margin:4px -14px;padding:14px;border-radius:12px;border-bottom:0}
+.sched .blk .time{color:var(--pu)}
+.prices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.prices div{border:1px solid var(--line);border-radius:16px;padding:20px}
+.price{font-size:36px;font-weight:700;color:var(--ink);white-space:nowrap}
+.price small{font-size:16px;color:var(--soft);font-weight:500}
+.found{background:var(--ink);color:#fff;border-radius:20px;padding:24px;margin-top:20px}
+.found .lab{color:var(--sun)}
+ul.ticks{padding-left:1.2em;margin:12px 0}
+ul.ticks li{margin-bottom:6px}
+.offer{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(20px,4vw,48px);padding:28px 0;border-top:1px solid var(--line);align-items:center}
+.offer .photo{aspect-ratio:4/3}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:20px}
+label{font:600 15px "Bricolage Grotesque",sans-serif;display:grid;gap:6px}
+input,select{font:16px "Newsreader",serif;padding:12px 14px;border:1px solid #cbbfd8;border-radius:10px;background:#fff;color:var(--ink);min-height:48px}
+form .full{grid-column:1/-1}
+.ok{display:none;margin-top:14px;font-family:"Bricolage Grotesque",sans-serif;color:var(--pu);font-weight:600}
+footer{background:var(--field);padding:48px 0 32px;font-size:16px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+footer h3{font-size:16px}
+footer a{color:var(--ink);text-decoration:none;display:block;padding:4px 0}
+footer a:hover{color:var(--pu)}
+.legal{border-top:1px solid var(--line);margin-top:28px;padding-top:18px;font-size:14px;color:var(--soft);display:flex;gap:16px;flex-wrap:wrap}
+.legal a{display:inline;color:var(--soft)}
+.sample{font:500 13px "Bricolage Grotesque",sans-serif;color:var(--soft);text-align:center;padding:10px;background:#fff8e6;border-bottom:1px solid #f2e2b3}
+section[data-page]{display:none}
+section[data-page].on{display:block}
+@media(max-width:860px){nav{display:none}nav.open{display:flex;position:absolute;left:0;right:0;top:100%;background:#fff;flex-direction:column;padding:8px max(5vw,18px) 16px;border-bottom:1px solid var(--line)}.menu{display:block}.lang{order:3}.three,.prices{grid-template-columns:minmax(0,1fr)}.split,.offer{grid-template-columns:minmax(0,1fr)}.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){body{font-size:17px}.hero .photo{aspect-ratio:4/3;margin-top:28px}.prog li{grid-template-columns:4.2em minmax(0,1fr)}.prog .btn{grid-column:2;justify-self:start}.day{font-size:28px}.strip{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{grid-template-columns:minmax(0,1fr)}.gal{grid-template-columns:1fr;grid-template-rows:none;height:auto}.gal .photo{aspect-ratio:4/3}.gal .photo:first-child{grid-row:auto}.finding{grid-template-columns:minmax(0,1fr);gap:8px}.sched li{grid-template-columns:5.8em minmax(0,1fr)}form{grid-template-columns:minmax(0,1fr)}.fgrid{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:no-preference){.hero .photo img{animation:settle 1.2s ease-out both}@keyframes settle{from{transform:scale(1.06)}to{transform:none}}}
+</style>
+</head>
+<body>
+<div class="sample">Design proposal A, "Calm editorial". Upcoming dates come from the autumn plan; prices and quotes are examples to confirm.</div>
+<header>
+ <div class="bar">
+  <a href="#home" aria-label="Inspiro home"><img src="img/inspiro-logo.png" alt="Inspiro"></a>
+  <button class="menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav">
+   <a href="#events">Events</a>
+   <a href="#cowork">Cowork</a>
+   <a href="#hospitality">For teams</a>
+   <a href="#why">Why it works</a>
+  </nav>
+  <span class="lang" title="Language switch (EN / RO)">EN · <a href="#home" style="text-decoration:none">RO</a></span>
+ </div>
+</header>
+
+<main>
+<!-- HOME -->
+<section data-page="home">
+ <div class="band hero" style="padding-bottom:0">
+  <div class="wrap">
+   <h1>Just show up.</h1>
+   <p class="lead">Phone-free evenings, workshops and a calmer working day at Inspiro Hub in Timișoara. Your phone rests by the door; you get the room, the people and the evening.</p>
+   <div class="acts"><a class="btn p" href="#events">See what's on</a><a class="btn g" href="#phone-spa">How the Phone Spa works</a></div>
+  </div>
+  <div class="wide"><div class="photo"><img src="img/dance-pair.jpg" alt="Two women dancing and laughing at the Inspiro Brazilian party while others clap"></div><p class="cap">Brazilian party at Inspiro Hub, November 2025.</p></div>
+ </div>
+
+ <div class="band">
+  <div class="wrap">
+   <h2>Next at the Hub</h2>
+   <p class="meta">Str. Constantin cel Mare 41, Timișoara. Small groups, so seats go early.</p>
+   <ul class="prog" id="homeNext"></ul>
+   <div class="acts"><a class="btn g" href="#events">All events</a></div>
+  </div>
+ </div>
+
+ <div class="band field" id="phone-spa">
+  <div class="wrap">
+   <h2>What happens to your phone</h2>
+   <p class="lead">Nothing bad. It rests in the Phone Spa for the evening, and so do you.</p>
+   <ol class="steps">
+    <li><span class="n">1</span><div><h3>Arrive and say hello</h3><p>Someone from the team meets you at the door. No apps, no QR codes.</p></div></li>
+    <li><span class="n">2</span><div><h3>Phone into the Phone Spa</h3><p>A box by the entrance, on silent. Expecting an urgent call? Tell us at the door.</p></div></li>
+    <li><span class="n">3</span><div><h3>Take it back when you leave</h3><p>It waits on silent the whole time.</p></div></li>
+   </ol>
+  </div>
+ </div>
+
+ <div class="band">
+  <div class="wide">
+   <h2>Three ways in</h2>
+   <div class="three" style="margin-top:24px">
+    <a href="#events"><div class="photo"><img src="img/cashflow-table.jpg" alt="Players around the Cashflow board game at the Hub"></div><h3>Evenings and workshops</h3><p class="meta">Cooking, books, games, dance. Two to four a month.</p></a>
+    <a href="#cowork"><div class="photo"><img src="img/hub-room-tall.jpg" alt="Sunlit room at Inspiro Hub with tall curtains"></div><h3>Wellbeing cowork</h3><p class="meta">Four focus blocks a day, a shared lunch, phones away.</p></a>
+    <a href="#hospitality"><div class="photo"><img src="img/food-table.jpg" alt="Buffet table with fruit, savoury bites and flowers"></div><h3>Teams and hospitality</h3><p class="meta">Team sessions at the Hub, coffee breaks, festival backstage.</p></a>
+   </div>
+  </div>
+ </div>
+
+ <div class="band field">
+  <div class="wide split">
+   <div><div class="big">49</div><p class="lead" style="margin-top:12px">phone-free events since our first picnic in May 2025.</p></div>
+   <div>
+    <h2>Started by a family that lost an evening to screens</h2>
+    <p>We are Petre and Eugenia, parents of three, with backgrounds in software and nutrition. After living in Spain, Brazil and Romania we saw how fast unlimited screen time took over our children's days.</p>
+    <p>Rules alone didn't work. Better evenings did. Inspiro is our attempt to make real life the more interesting option.</p>
+    <a href="#why">Why this works</a>
+   </div>
+  </div>
+ </div>
+
+ <div class="band">
+  <div class="wrap">
+   <h2>Hear about the next evening</h2>
+   <p class="lead">One short email a month: what's on, and one idea for a calmer week. No spam.</p>
+   <form id="news" style="grid-template-columns:minmax(0,1fr) auto"><label class="full" style="grid-column:auto">Email<input id="newsEmail" type="email" required placeholder="name@example.com"></label><button class="btn p" style="align-self:end">Subscribe</button></form>
+   <p class="ok" id="newsOk">Thanks. This is a prototype, so nothing was sent.</p>
+  </div>
+ </div>
+</section>
+
+<!-- EVENTS -->
+<section data-page="events">
+ <div class="band">
+  <div class="wrap">
+   <h1 style="font-size:clamp(40px,6vw,64px)">Events</h1>
+   <p class="lead">Every event is phone-free and small: 8 to 15 people, at Inspiro Hub unless it says otherwise.</p>
+   <div class="chips" id="chips"></div>
+   <h2 style="font-size:28px;margin-top:28px">Coming up</h2>
+   <ul class="prog" id="upcoming"></ul>
+   <h2 style="font-size:28px;margin-top:56px">Weekly at the Hub</h2>
+   <ul class="prog" id="weekly"></ul>
+   <h2 style="font-size:28px;margin-top:56px">Past events</h2>
+   <ul class="prog" id="past"></ul>
+   <div class="pager" id="pager" aria-label="Past events pages"></div>
+  </div>
+ </div>
+</section>
+
+<!-- EVENT -->
+<section data-page="event">
+ <div class="band" style="padding-bottom:24px">
+  <div class="wrap">
+   <a href="#events" class="meta">All events</a>
+   <h1 style="font-size:clamp(40px,6.5vw,72px);margin-top:12px">Brazilian party</h1>
+   <p class="lead">Capoeira, Brazilian food and music for one phone-free evening. Our team lived in Bahia, and this is the night we bring it home.</p>
+  </div>
+ </div>
+ <div class="wide"><div class="gal"><div class="photo"><img src="img/dance-group.jpg" alt="A room full of people dancing at the Brazilian party"></div><div class="photo"><img src="img/capoeira.jpg" alt="Capoeira demonstration in a circle of guests"></div><div class="photo"><img src="img/food-table.jpg" alt="Brazilian-themed buffet"></div></div></div>
+ <div class="band" style="padding-top:28px">
+  <div class="wrap">
+   <div class="facts"><div><b>Sat 8 Nov 2025</b><span>Event #20</span></div><div><b>18:00 to 22:00</b><span>4 hours</span></div><div><b>Inspiro Hub</b><span>Str. Constantin cel Mare 41</span></div></div>
+   <h2 style="font-size:30px">The evening</h2>
+   <ul class="ticks"><li>Welcome drink and Phone Spa at the door</li><li>Capoeira session with Noni, for every level</li><li>Food made in Brazil's style, shared at one table</li><li>Music and dancing until 22:00</li></ul>
+   <h2 style="font-size:30px;margin-top:32px">Good to know</h2>
+   <p>Come with friends: most guests arrived in small groups, and birthdays are welcome. Comfortable clothes for capoeira. The evening is alcohol-free and ends at 22:00.</p>
+   <div class="note" style="margin-top:28px">This evening has passed. The event template shows booking here for upcoming evenings: price, early-bird date and a "Book a seat" button.</div>
+   <div class="acts"><a class="btn p" href="#events">See upcoming events</a></div>
+  </div>
+ </div>
+</section>
+
+<!-- WHY -->
+<section data-page="why">
+ <div class="band">
+  <div class="wrap">
+   <h1 style="font-size:clamp(40px,6vw,64px)">Why it works</h1>
+   <p class="lead">We don't ask anyone to quit their phone. We give them a better reason to put it down for an evening. Here is what research says, including where it is weaker than headlines suggest.</p>
+   <div style="margin-top:32px">
+    <div class="finding"><div class="num">20–40<small>minutes less screen time a day</small></div><div><h3>Making the phone duller works</h3><p>Switching a phone to greyscale cut daily use by about 39 minutes in one study of US students and by about 20 minutes in a pre-registered one-week Dutch study.</p><p class="src">Holte and Ferraro, 2020; Dekker and Baumgartner, 2023.</p></div></div>
+    <div class="finding"><div class="num">Full<small>energy restored by a nature break</small></div><div><h3>A real break beats a scrolling break</h3><p>In an experiment with 308 employees, a short break in nature fully restored energy. A social media break did so only partly; no break was worst.</p><p class="src">Grobelny and colleagues, Scientific Reports, 2024.</p></div></div>
+    <div class="finding"><div class="num">57%<small>of students would prefer a world without TikTok</small></div><div><h3>Many people want to step away, together</h3><p>US college students said they would rather nobody used TikTok (57%) or Instagram (58%). Leaving alone feels costly; leaving as a group doesn't.</p><p class="src">Bursztyn and colleagues, American Economic Review, 2025.</p></div></div>
+    <div class="finding"><div class="num">Mixed<small>results for digital detox</small></div><div><h3>Why we offer alternatives, not abstinence</h3><p>Reviews of digital detox studies find mixed effects on mood and well-being, and cravings during abstinence. So we don't run detox challenges as the main offer; we make offline time worth choosing.</p><p class="src">Radtke and colleagues, systematic review, 2022.</p></div></div>
+   </div>
+   <p class="note" style="margin-top:20px">Several of these studies are listed in the further reading for Steven Bartlett's October 2026 episode with Dr. Sahar Yousef. Each will be checked against the original paper before this page goes live.</p>
+  </div>
+ </div>
+</section>
+
+<!-- COWORK -->
+<section data-page="cowork">
+ <div class="band" style="padding-bottom:0">
+  <div class="wrap">
+   <h1 style="font-size:clamp(40px,6.5vw,72px)">A working day that ends on time</h1>
+   <p class="lead">A small cowork at Inspiro Hub where everyone keeps the same rhythm: four focus blocks, real breaks, a shared lunch, and phones on silent. Six hours of good work, then your evening.</p>
+   <div class="acts"><a class="btn p" href="#cowork-book">Try a day</a><a class="btn g" href="#cowork-day">See the day</a></div>
+  </div>
+  <div class="wide"><div class="photo" style="aspect-ratio:16/7;margin-top:40px"><img src="img/hub-room.jpg" alt="The Hub's sunlit room with mustard and lilac curtains"></div></div>
+ </div>
+ <div class="band" id="cowork-day">
+  <div class="wrap">
+   <h2>The day</h2>
+   <p class="meta">A timer at the door shows the block and the minutes left, so nobody knocks.</p>
+   <ul class="sched">
+    <li><span class="time">08:30</span><span>Arrive, coffee, say good morning</span></li>
+    <li><span class="time">09:00</span><span>Ten minutes of movement together</span></li>
+    <li class="blk"><span class="time">09:15</span><span><b>Focus block 1</b>, 90 minutes</span></li>
+    <li><span class="time">10:45</span><span>Break: eyes off the screen, garden or tea</span></li>
+    <li class="blk"><span class="time">11:00</span><span><b>Focus block 2</b>, 90 minutes</span></li>
+    <li><span class="time">12:30</span><span>Shared lunch, 45 minutes, at one table</span></li>
+    <li class="blk"><span class="time">13:15</span><span><b>Focus block 3</b>, 90 minutes</span></li>
+    <li><span class="time">14:45</span><span>Break</span></li>
+    <li class="blk"><span class="time">15:00</span><span><b>Focus block 4</b>, until 16:30</span></li>
+   </ul>
+   <p style="margin-top:20px">On Monday everyone names what they want finished by Friday. On Friday we check, briefly and kindly.</p>
+  </div>
+ </div>
+ <div class="band field" id="cowork-book">
+  <div class="wrap">
+   <h2>Prices</h2>
+   <div class="prices"><div><div class="lab">Half day</div><div class="price">60 <small>lei</small></div></div><div><div class="lab">Full day</div><div class="price">90 <small>lei</small></div></div><div><div class="lab">Unlimited month</div><div class="price">900 <small>lei</small></div></div></div>
+   <div class="found"><div class="lab">Founding members</div><p style="margin:6px 0 0">750 lei a month, fixed for six months, for the first three people. Includes a pass to the end-of-year host party.</p></div>
+   <h3 style="margin-top:28px">Included</h3>
+   <ul class="ticks"><li>Speciality coffee and a wide choice of tea</li><li>Fast internet, printer, a quiet call room</li><li>Garden and the outdoor gazebo</li><li>Flexible desks, the same calm rhythm for everyone</li></ul>
+   <div class="acts"><a class="btn p" href="#cowork-book">Book a trial day</a></div>
+  </div>
+ </div>
+</section>
+
+<!-- HOSPITALITY -->
+<section data-page="hospitality">
+ <div class="band">
+  <div class="wrap">
+   <h1 style="font-size:clamp(40px,6.5vw,72px)">Inspiro Events for teams</h1>
+   <p class="lead">Half-day team sessions at Inspiro Hub, coffee breaks and catering for your events, and backstage hospitality for festivals. Phones away, people present.</p>
+  </div>
+  <div class="wide" style="margin-top:32px">
+   <div class="offer"><div class="photo"><img src="img/cashflow-table.jpg" alt="A team around a table at Inspiro Hub"></div><div><div class="lab">Team session at the Hub</div><h3 style="font-size:28px">Build something together</h3><p>About three and a half hours. Small teams build parts of one structure that must stand together, with a facilitated debrief on how your team really decides. You take home what you built.</p><p class="meta">8 to 25 people · from 300 lei per person</p></div></div>
+   <div class="offer"><div class="photo"><img src="img/food-table.jpg" alt="Coffee break and buffet table"></div><div><div class="lab">Coffee breaks and catering</div><h3 style="font-size:28px">Food people remember</h3><p>Fresh, mostly plant-based menus planned by a nutritionist, for meetings, launches and workshops in Timișoara.</p></div></div>
+   <div class="offer"><div class="photo"><img src="img/hub-garden.jpg" alt="The Hub garden"></div><div><div class="lab">Festival hospitality</div><h3 style="font-size:28px">Backstage, handled</h3><p>Riders, dressing rooms, shopping and budgets for performing artists. Delivered at Zilele Timișoarei in 2025 and 2026.</p></div></div>
+  </div>
+ </div>
+ <div class="band field">
+  <div class="wrap">
+   <h2>Ask for the facilitator's dossier</h2>
+   <p>We keep the session's mechanics private so your team can't read the answers. HR and team leads get the full plan.</p>
+   <form id="req"><label>Name<input id="rqName" required></label><label>Company<input id="rqCo" required></label><label>Team size<select id="rqSize"><option>8 to 12</option><option>13 to 18</option><option>19 to 25</option></select></label><label>Preferred date<input id="rqDate" type="date"></label><div class="full"><button class="btn p">Send request</button></div></form>
+   <p class="ok" id="reqOk">Request noted. This is a prototype, so nothing was sent.</p>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wide">
+  <div class="fgrid">
+   <div><img src="img/inspiro-logo.png" alt="Inspiro" style="height:30px;width:auto;margin-bottom:14px"><p class="meta" style="margin:0">Inspiro Hub, Str. Constantin cel Mare 41, 300274 Timișoara<br>0744 440 824 · info@inspiro-club.com</p></div>
+   <div><h3>Visit</h3><a href="#events">Events</a><a href="#cowork">Cowork</a><a href="#why">Why it works</a></div>
+   <div><h3>Work with us</h3><a href="#hospitality">Team sessions</a><a href="#hospitality">Catering</a><a href="#hospitality">Festivals</a></div>
+   <div><h3>Follow</h3><a href="https://instagram.com/inspiro.club">Instagram</a><a href="https://facebook.com/inspiro.club">Facebook</a><a href="https://www.linkedin.com/company/inspiro-club/">LinkedIn</a></div>
+  </div>
+  <div class="legal"><span>© 2026 Inspiro Club</span><a href="#home">Privacy</a><a href="#home">Terms</a><a href="#home">Cookies</a></div>
+ </div>
+</footer>
+
+<script>
+{
+const up=[
+ {d:'5',m:'Dec',w:'Sat 11:00',t:"Parents' brunch",x:'A slow Saturday brunch for parents while children play in the next room.',c:'families'},
+ {d:'11',m:'Dec',w:'Fri 19:00',t:'Phone-free dinner',x:'One long table, a seasonal menu and conversation that runs past dessert.',c:'evenings'},
+ {d:'14',m:'Dec',w:'Mon 17:00',t:'Cashflow for teens',x:'The money board game, free for teenagers, with a short debrief.',c:'workshops'},
+ {d:'19',m:'Dec',w:'Sat 18:00',t:'End-of-year host party',x:'Our last evening of 2026, hosted by the people who came all year.',c:'evenings'}];
+const weekly=[
+ {d:'Tue',m:'weekly',w:'09:00',t:'Morning yoga and coffee with Larisa',x:'A gentle start to the week, then coffee in the garden.',c:'weekly'},
+ {d:'Thu',m:'weekly',w:'18:00',t:'Restorative yoga for women with Tamara',x:'Ninety minutes of rest, breath and slow movement.',c:'weekly'}];
+const past=[
+ ['49','25 Oct 2026','Yard sale and music with DJ Mitru','evenings'],['48','14 Sep 2026','Financial education with Cashflow','workshops'],['47','16 Jun 2026','INSPIRO Book Club','evenings'],['46','14 Jun 2026','Financial education with Cashflow','workshops'],['45','12 Jun 2026','Brownie cooking class','workshops'],['44','26 May 2026','INSPIRO Book Club','evenings'],['43','22 May 2026','Financial education with Cashflow','workshops'],['42','14 May 2026','Fire and sound bath evening','evenings'],['41','9 May 2026','Crochet and embroidery workshop','workshops'],['40','25 Apr 2026','Financial education with Cashflow','workshops'],['39','19 Apr 2026','Terra Issa product launch','evenings'],['38','14 Apr 2026','INSPIRO Book Club','evenings'],['37','7 Apr 2026','Recipe swap across generations','families'],['36','4 Apr 2026','Embroidery workshop','workshops'],['35','31 Mar 2026','Plant swap evening','evenings'],['34','28 Mar 2026','Financial education with Cashflow','workshops'],['33','27 Mar 2026','Dancing party','evenings'],['32','22 Mar 2026','Workshop with mandalas of light','workshops'],['31','17 Mar 2026','INSPIRO Book Club','evenings'],['30','6 Mar 2026','Fresh pasta cooking class','workshops'],['22','17 Jan 2026','Vision board 2026','workshops'],['21','28 Nov 2025','Sushi cooking party','workshops'],['20','8 Nov 2025','Brazilian party','evenings'],['19','31 Oct 2025','Halloween party','families'],['17','30 Sep 2025','Terrariums evening','workshops']];
+const cats=[['all','All'],['evenings','Evenings'],['workshops','Workshops'],['families','Families'],['weekly','Weekly']];
+let cat='all',page=1;const per=8;
+const $=id=>document.getElementById(id);
+const row=e=>`<li><div class="day">${e.d}<small>${e.m}</small></div><div><h3>${e.t}</h3><p>${e.w} · ${e.x}</p></div><a class="btn g" href="#event">Details</a></li>`;
+$('homeNext').innerHTML=up.slice(0,3).map(row).join('');
+const draw=()=>{
+ const f=a=>cat==='all'||a===cat;
+ const u=up.filter(e=>f(e.c)),w=weekly.filter(e=>f(e.c));
+ $('upcoming').innerHTML=u.length?u.map(row).join(''):'<li><div></div><p>Nothing of this kind in the next weeks. See all events.</p></li>';
+ $('weekly').innerHTML=w.length?w.map(row).join(''):'<li><div></div><p>No weekly sessions in this category.</p></li>';
+ const p=past.filter(e=>f(e[3]));const pages=Math.max(1,Math.ceil(p.length/per));if(page>pages)page=pages;
+ $('past').innerHTML=p.slice((page-1)*per,page*per).map(e=>`<li><div class="day" style="font-size:24px">#${e[0]}<small>${e[1]}</small></div><div><h3>${e[2]}</h3></div><a class="btn g" href="#event">Photos</a></li>`).join('');
+ let h=`<button ${page===1?'disabled':''} data-p="${page-1}" aria-label="Previous page">‹</button>`;
+ for(let i=1;i<=pages;i++)h+=`<button data-p="${i}" ${i===page?'aria-current="page"':''}>${i}</button>`;
+ $('pager').innerHTML=h+`<button ${page===pages?'disabled':''} data-p="${page+1}" aria-label="Next page">›</button>`;
+ $('chips').innerHTML=cats.map(c=>`<button class="chip" data-c="${c[0]}" aria-pressed="${c[0]===cat}">${c[1]}</button>`).join('');
+};
+$('chips').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(b){cat=b.dataset.c;page=1;draw()}});
+$('pager').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(b&&!b.disabled){page=+b.dataset.p;draw();$('past').scrollIntoView({block:'start'})}});
+draw();
+const pages=['home','events','event','why','cowork','hospitality'];
+const route=()=>{const h=(location.hash||'#home').slice(1);const pg=pages.includes(h)?h:(h.startsWith('cowork')?'cowork':h==='phone-spa'?'home':'home');
+ document.querySelectorAll('section[data-page]').forEach(s=>s.classList.toggle('on',s.dataset.page===pg));
+ document.querySelectorAll('nav a').forEach(a=>a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+pg));
+ $('nav').classList.remove('open');$('menu').setAttribute('aria-expanded','false');
+ if(pages.includes(h))window.scrollTo(0,0);else{const t=document.getElementById(h);if(t)t.scrollIntoView()}};
+addEventListener('hashchange',route);route();
+$('menu').addEventListener('click',()=>{const o=$('nav').classList.toggle('open');$('menu').setAttribute('aria-expanded',o)});
+const ok=(f,m)=>$(f).addEventListener('submit',e=>{e.preventDefault();$(m).style.display='block'});
+ok('news','newsOk');ok('req','reqOk');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inspiro proposal B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE warm occasion: a neighbourhood club where you are expected
+   IDEA the Hub's own noticeboard: events pinned as ticket stubs beside real photos
+   PICTURE a photo mosaic with the next ticket pinned into it; tickets carry dates
+   COLOUR white ground, plum ink, Inspiro purple, sunflower (the party bunting), lilac and mint fields
+   TYPE Bricolage Grotesque 800 (brand) + Figtree for text
+   LAYOUT mosaic grid on laptop, one stacked column on phone: headline tile, photo, ticket */
+:root{color-scheme:light;--bg:#fff;--ink:#24152f;--soft:#5f5169;--pu:#672d93;--pu2:#4f1f73;--sun:#ffd457;--sunD:#8a6100;--lil:#efe6fa;--mint:#dcf2e6;--line:#e8e0f0}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 "Figtree",system-ui,sans-serif;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:var(--pu)}
+h1,h2,h3,.btn,.tk-d,.big,.price{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+h1{font-size:clamp(46px,7vw,80px);line-height:.98;letter-spacing:-.03em;font-weight:800;margin:0 0 14px;text-wrap:balance}
+h2{font-size:clamp(30px,4vw,44px);line-height:1.05;letter-spacing:-.02em;font-weight:800;margin:0 0 12px;text-wrap:balance}
+h3{font-size:21px;line-height:1.2;font-weight:800;margin:0 0 6px}
+p{margin:0 0 12px}
+.lead{font-size:clamp(18px,2vw,21px);color:var(--soft);max-width:36em}
+.wide{max-width:1180px;margin:0 auto;padding:0 max(5vw,16px)}
+.band{padding-block:clamp(36px,6vw,84px)}
+header{position:sticky;top:0;z-index:5;background:#fffffff2;backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:16px;max-width:1180px;margin:0 auto;padding:10px max(5vw,16px)}
+.bar img{height:30px;width:auto}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;font-weight:600;font-size:15px}
+nav a{color:var(--ink);text-decoration:none;padding:10px 14px;border-radius:999px}
+nav a[aria-current]{background:var(--sun)}
+.lang{font-weight:600;font-size:14px;border-radius:999px;padding:8px 12px;background:var(--lil);white-space:nowrap}
+.menu{display:none;margin-left:auto;font:600 15px "Figtree",sans-serif;background:var(--lil);border:0;border-radius:999px;padding:10px 16px;color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border-radius:14px;font-weight:800;font-size:16px;text-decoration:none;border:0;cursor:pointer}
+.btn.p{background:var(--pu);color:#fff;box-shadow:0 3px 0 var(--pu2)}
+.btn.p:active{transform:translateY(2px);box-shadow:0 1px 0 var(--pu2)}
+.btn.s{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.acts{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--pu);outline-offset:2px}
+.ph{border-radius:22px;overflow:hidden;background:var(--lil)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.meta{font-size:15px;color:var(--soft)}
+/* hero mosaic */
+.mosaic{display:grid;grid-template-columns:1.15fr 1fr .85fr;grid-template-rows:auto auto;gap:14px;margin-top:20px}
+.t-sun{background:var(--sun);border-radius:22px;padding:clamp(22px,3vw,36px);grid-row:span 2;display:flex;flex-direction:column;justify-content:flex-end}
+.t-sun .lead{color:#3d2a12}
+.m1{grid-row:span 2;min-height:420px}
+.t-mint{background:var(--mint);border-radius:22px;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.big{font-size:clamp(54px,7vw,86px);font-weight:800;line-height:.9;color:var(--pu);letter-spacing:-.04em}
+/* ticket stub */
+.tk{position:relative;background:#fff;border-radius:18px;box-shadow:0 0 0 1.5px var(--ink);display:grid;grid-template-columns:92px minmax(0,1fr);overflow:hidden}
+.tk::before,.tk::after{content:"";position:absolute;left:84px;width:16px;height:16px;border-radius:50%;background:var(--bg);box-shadow:0 0 0 1.5px var(--ink)}
+.tk::before{top:-9px}.tk::after{bottom:-9px}
+.tk-d{background:var(--lil);border-right:2px dashed var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 6px;text-align:center}
+.tk-d b{font-size:36px;line-height:1;color:var(--pu)}
+.tk-d span{font-size:14px;font-weight:600;margin-top:4px}
+.tk-b{padding:16px 18px}
+.tk-b p{font-size:15px;color:var(--soft);margin:0 0 10px}
+.tk-b .when{font-weight:600;color:var(--ink);font-size:15px;margin-bottom:4px}
+.tk-b a{font-weight:700;text-decoration:none}
+.tk.fam .tk-d{background:var(--mint)}.tk.work .tk-d{background:#fff1c7}.tk.week .tk-d{background:#f6f0fb}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(290px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:12px 2px 18px}
+.rail>*{scroll-snap-align:start}
+.railnav{display:flex;gap:8px;margin-left:auto}
+.railnav button{width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:#fff;font-size:18px;cursor:pointer}
+.head{display:flex;align-items:end;gap:16px;flex-wrap:wrap}
+.spa{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.spa div{background:#fff;border-radius:20px;padding:22px}
+.spa svg{width:56px;height:56px;margin-bottom:10px}
+.lilband{background:var(--lil)}
+.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:22px}
+.way{border-radius:22px;overflow:hidden;text-decoration:none;color:var(--ink);display:flex;flex-direction:column}
+.way .ph{border-radius:0;aspect-ratio:4/3}
+.way div.tx{padding:18px 20px 22px;flex:1}
+.way:nth-child(1) .tx{background:var(--sun)}.way:nth-child(2) .tx{background:var(--mint)}.way:nth-child(3) .tx{background:var(--lil)}
+.way:hover h3{text-decoration:underline}
+.found{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,56px);align-items:center}
+.found .ph{aspect-ratio:4/5;transform:rotate(-1.5deg)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.chip{border:0;background:var(--lil);border-radius:999px;padding:10px 16px;font:600 15px "Figtree",sans-serif;cursor:pointer;color:var(--ink);min-height:44px}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.pastg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.past{border-radius:16px;background:#f8f5fb;padding:16px;text-decoration:none;color:var(--ink);display:block}
+.past b{font:800 22px "Bricolage Grotesque",sans-serif;color:var(--pu)}
+.past span{display:block;font-size:14px;color:var(--soft)}
+.past h3{font-size:17px;margin-top:6px}
+.pager{display:flex;gap:8px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+.pager button{min-width:44px;min-height:44px;border-radius:12px;border:0;background:var(--lil);font:700 15px "Figtree",sans-serif;cursor:pointer;color:var(--ink)}
+.pager button[aria-current]{background:var(--pu);color:#fff}
+.pager button:disabled{opacity:.35;cursor:default}
+.ev{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.9fr);gap:20px;align-items:start}
+.evg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.evg .ph:first-child{grid-column:span 2;aspect-ratio:16/10}
+.evg .ph{aspect-ratio:1}
+.card{background:var(--lil);border-radius:22px;padding:24px;position:sticky;top:84px}
+.card dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;margin:14px 0}
+.card dt{font-weight:600;color:var(--soft)}
+.card dd{margin:0;font-weight:600}
+.find{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.fc{border-radius:22px;padding:24px}
+.fc:nth-child(1){background:var(--mint)}.fc:nth-child(2){background:var(--sun)}.fc:nth-child(3){background:var(--lil)}.fc:nth-child(4){background:#f6f2ea}
+.fc .big{font-size:clamp(44px,5vw,64px);margin-bottom:6px}
+.fc .src{font-size:14px;color:var(--soft);margin:0}
+.note{font-size:15px;color:var(--soft);background:#fff8e1;border-radius:14px;padding:14px 16px;margin-top:18px}
+.cohero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:8px}
+.cohero .t-mint{padding:clamp(24px,3vw,40px)}
+.ribbon{display:flex;height:56px;border-radius:14px;overflow:hidden;margin:22px 0 8px;box-shadow:0 0 0 1.5px var(--ink)}
+.ribbon div{display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;border-right:1.5px solid var(--ink);white-space:nowrap;overflow:hidden}
+.ribbon div:last-child{border-right:0}
+.ribbon .f{background:var(--pu);color:#fff}.ribbon .r{background:var(--mint)}.ribbon .l{background:var(--sun)}
+.rlab{display:flex;justify-content:space-between;font-size:14px;color:var(--soft);font-variant-numeric:tabular-nums}
+.sched{list-style:none;padding:0;margin:20px 0 0;columns:2;column-gap:32px}
+.sched li{break-inside:avoid;display:grid;grid-template-columns:4.2em minmax(0,1fr);gap:12px;padding:8px 0}
+.sched b{white-space:nowrap}
+.prices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:22px}
+.prices .tk{grid-template-columns:minmax(0,1fr)}
+.prices .tk::before,.prices .tk::after{display:none}
+.prices .tk-b{padding:20px}
+.price{font-size:38px;font-weight:800;white-space:nowrap}
+.price small{font-size:16px;font-weight:600;color:var(--soft)}
+.prices .hl{background:var(--sun)}
+ul.ticks{padding-left:1.2em;margin:10px 0}
+ul.ticks li{margin-bottom:6px}
+/* hospitality: same language, quieter */
+.corp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
+.corp article{border:1.5px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
+.corp .ph{border-radius:0;aspect-ratio:16/10}
+.corp .tx{padding:20px}
+.corp .k{font-size:14px;font-weight:600;color:var(--pu)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:20px}
+.facts div{border-top:3px solid var(--pu);padding-top:10px}
+.facts b{display:block;font:800 26px "Bricolage Grotesque",sans-serif}
+.facts span{font-size:14px;color:var(--soft)}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}
+label{font-weight:600;font-size:15px;display:grid;gap:6px}
+input,select{font:16px "Figtree",sans-serif;padding:12px 14px;border:1.5px solid #cdbfdb;border-radius:12px;background:#fff;color:var(--ink);min-height:48px}
+form .full{grid-column:1/-1}
+.ok{display:none;margin-top:12px;font-weight:700;color:var(--pu)}
+footer{background:var(--ink);color:#fff;padding:44px 0 28px}
+footer{background:var(--lil);color:var(--ink)}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+footer h3{font-size:16px}
+footer a{color:var(--ink);text-decoration:none;display:block;padding:4px 0}
+.legal{border-top:1px solid #d9cce6;margin-top:24px;padding-top:16px;font-size:14px;color:var(--soft);display:flex;gap:16px;flex-wrap:wrap}
+.legal a{display:inline;color:var(--soft)}
+.sample{font-size:13px;font-weight:500;color:var(--soft);text-align:center;padding:10px;background:#fff8e1}
+section[data-page]{display:none}
+section[data-page].on{display:block}
+@media(max-width:900px){nav{display:none}nav.open{display:flex;position:absolute;left:0;right:0;top:100%;background:#fff;flex-direction:column;padding:8px max(5vw,16px) 16px;border-bottom:1px solid var(--line)}.menu{display:block}.mosaic{grid-template-columns:1fr 1fr}.t-sun{grid-column:span 2;grid-row:auto}.m1{grid-row:auto;min-height:300px}.ways,.corp{grid-template-columns:minmax(0,1fr)}.pastg{grid-template-columns:repeat(2,minmax(0,1fr))}.ev,.found,.cohero{grid-template-columns:minmax(0,1fr)}.card{position:static}.prices{grid-template-columns:repeat(2,minmax(0,1fr))}.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.mosaic{grid-template-columns:minmax(0,1fr)}.t-sun{grid-column:auto}.mosaic .ph.m2{display:none}.spa,.grid2,.find,.facts{grid-template-columns:minmax(0,1fr)}.sched{columns:1}.ribbon div span{display:none}.prices{grid-template-columns:minmax(0,1fr)}form{grid-template-columns:minmax(0,1fr)}.fgrid{grid-template-columns:minmax(0,1fr)}.tk{grid-template-columns:76px minmax(0,1fr)}.tk::before,.tk::after{left:68px}.tk-d b{font-size:30px}}
+@media(prefers-reduced-motion:no-preference){.pin{animation:pin .7s cubic-bezier(.2,.9,.3,1.3) .3s both}@keyframes pin{from{transform:translateY(-14px) rotate(-3deg);opacity:0}to{transform:none;opacity:1}}}
+</style>
+</head>
+<body>
+<div class="sample">Design proposal B, "Warm community". Upcoming dates come from the autumn plan; prices and quotes are examples to confirm.</div>
+<header>
+ <div class="bar">
+  <a href="#home" aria-label="Inspiro home"><img src="img/inspiro-logo.png" alt="Inspiro"></a>
+  <button class="menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav id="nav"><a href="#events">Events</a><a href="#cowork">Cowork</a><a href="#hospitality">For teams</a><a href="#why">Why it works</a></nav>
+  <span class="lang" title="Language switch (EN / RO)">EN · RO</span>
+ </div>
+</header>
+
+<main>
+<section data-page="home">
+ <div class="band" style="padding-top:20px">
+  <div class="wide">
+   <div class="mosaic">
+    <div class="t-sun"><h1>Just show up.</h1><p class="lead">Phone-free evenings, workshops and a calmer working day at Inspiro Hub, Timișoara. Leave the phone at the door and meet the people in the room.</p><div class="acts"><a class="btn p" href="#events">See what's on</a><a class="btn s" href="#phone-spa">The Phone Spa</a></div></div>
+    <div class="ph m1"><img src="img/dance-group.jpg" alt="Guests dancing together at the Inspiro Brazilian party"></div>
+    <div class="t-mint"><div class="big">49</div><p style="margin:0;font-weight:600">phone-free events since May 2025</p></div>
+    <div class="ph m2" style="min-height:200px"><img src="img/capoeira.jpg" alt="Capoeira in a circle of guests"></div>
+   </div>
+   <div class="head" style="margin-top:40px"><h2 style="margin:0">Pinned for December</h2><div class="railnav"><button id="prev" aria-label="Previous events">‹</button><button id="next" aria-label="Next events">›</button></div></div>
+   <div class="rail" id="homeRail"></div>
+  </div>
+ </div>
+
+ <div class="band lilband" id="phone-spa">
+  <div class="wide">
+   <h2>The Phone Spa</h2>
+   <p class="lead">Your phone gets an evening off too. Three steps, no apps.</p>
+   <div class="spa">
+    <div><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#ffd457"/><path d="M17 33c3 5 19 5 22 0" stroke="#24152f" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="21" cy="23" r="3" fill="#24152f"/><circle cx="35" cy="23" r="3" fill="#24152f"/></svg><h3>Arrive, say hello</h3><p class="meta">Someone from the team meets you at the door.</p></div>
+    <div><svg viewBox="0 0 56 56" aria-hidden="true"><rect x="6" y="24" width="44" height="26" rx="6" fill="#672d93"/><rect x="18" y="6" width="20" height="30" rx="4" fill="#fff" stroke="#24152f" stroke-width="2.5"/><path d="M6 32h44" stroke="#4f1f73" stroke-width="3"/></svg><h3>Phone into the Spa</h3><p class="meta">A box by the entrance, on silent. Expecting an urgent call? Tell us.</p></div>
+    <div><svg viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#dcf2e6"/><path d="M16 29l8 8 16-17" stroke="#24152f" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>Collect it on the way out</h3><p class="meta">It waits on silent the whole evening.</p></div>
+   </div>
+  </div>
+ </div>
+
+ <div class="band">
+  <div class="wide">
+   <h2>Pick your way in</h2>
+   <div class="ways">
+    <a class="way" href="#events"><div class="ph"><img src="img/cashflow-table.jpg" alt="Players around the Cashflow game"></div><div class="tx"><h3>Evenings and workshops</h3><p style="margin:0">Cooking, books, games and dancing. Two to four a month.</p></div></a>
+    <a class="way" href="#cowork"><div class="ph"><img src="img/hub-garden.jpg" alt="The Hub garden"></div><div class="tx"><h3>Wellbeing cowork</h3><p style="margin:0">Focus blocks, real breaks and lunch at one table.</p></div></a>
+    <a class="way" href="#hospitality"><div class="ph"><img src="img/food-table.jpg" alt="Buffet with fruit and savoury bites"></div><div class="tx"><h3>Teams and hospitality</h3><p style="margin:0">Team sessions, coffee breaks, festival backstage.</p></div></a>
+   </div>
+  </div>
+ </div>
+
+ <div class="band" style="padding-top:0">
+  <div class="wide found">
+   <div class="ph"><img src="img/cashflow-flipchart.jpg" alt="Petre explaining a Cashflow game round on a flipchart"></div>
+   <div><h2>A family project, run from our own table</h2><p>We are Petre and Eugenia, parents of three, from software and nutrition. We lived in Spain, Brazil and Romania and watched screens take over our children's days faster than any rule could stop.</p><p>What worked was a better evening. That is what the Hub is for.</p><a href="#why" style="font-weight:700">Why it works</a>
+   <form id="news" style="margin-top:28px;grid-template-columns:minmax(0,1fr) auto"><label style="grid-column:auto">Get one email a month<input id="newsEmail" type="email" required placeholder="name@example.com"></label><button class="btn p" style="align-self:end">Subscribe</button></form><p class="ok" id="newsOk">Thanks. This is a prototype, so nothing was sent.</p></div>
+  </div>
+ </div>
+</section>
+
+<section data-page="events">
+ <div class="band">
+  <div class="wide">
+   <h1 style="font-size:clamp(40px,6vw,64px)">What's on</h1>
+   <p class="lead">Small, phone-free and mostly at Inspiro Hub. Come alone or bring friends.</p>
+   <div class="chips" id="chips"></div>
+   <h2 style="font-size:26px;margin-top:20px">Coming up</h2>
+   <div class="grid2" id="upcoming"></div>
+   <h2 style="font-size:26px;margin-top:44px">Every week</h2>
+   <div class="grid2" id="weekly"></div>
+   <h2 style="font-size:26px;margin-top:44px">Past events</h2>
+   <div class="pastg" id="past"></div>
+   <div class="pager" id="pager"></div>
+  </div>
+ </div>
+</section>
+
+<section data-page="event">
+ <div class="band">
+  <div class="wide">
+   <a href="#events" class="meta">What's on</a>
+   <h1 style="font-size:clamp(40px,6vw,68px);margin-top:10px">Brazilian party</h1>
+   <div class="ev">
+    <div>
+     <div class="evg"><div class="ph"><img src="img/dance-pair.jpg" alt="Two guests dancing"></div><div class="ph"><img src="img/capoeira.jpg" alt="Capoeira demonstration"></div><div class="ph"><img src="img/food-table.jpg" alt="Buffet table"></div></div>
+     <h2 style="font-size:28px;margin-top:28px">The evening</h2>
+     <p>Capoeira, Brazilian food and music for one phone-free night. Our team lived in Bahia, and this is the evening we bring it home.</p>
+     <ul class="ticks"><li>Phone Spa and a welcome at the door</li><li>Capoeira session with Noni, any level</li><li>Food in Brazil's style at one shared table</li><li>Music and dancing until 22:00</li></ul>
+     <p>Come with friends: most guests came in small groups, and birthdays are welcome. Wear something comfortable.</p>
+    </div>
+    <aside class="card"><div class="tk-d" style="background:none;border:0;padding:0;align-items:flex-start;text-align:left"><b>Sat 8 Nov</b><span>2025 · event #20</span></div><dl><dt>Time</dt><dd>18:00 to 22:00</dd><dt>Place</dt><dd>Inspiro Hub, Str. Constantin cel Mare 41</dd><dt>Group</dt><dd>Up to 15 guests</dd></dl><p class="meta">This evening has passed. For upcoming events this card holds the price, early-bird date and the booking button.</p><a class="btn p" href="#events" style="width:100%">See upcoming events</a></aside>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section data-page="why">
+ <div class="band">
+  <div class="wide">
+   <h1 style="font-size:clamp(40px,6vw,64px)">Why it works</h1>
+   <p class="lead">We don't ask anyone to give up their phone. We make the evening worth putting it down for. What research says, including where it is weaker than headlines suggest:</p>
+   <div class="find">
+    <div class="fc"><div class="big">20–40 min</div><h3>less phone use a day in greyscale</h3><p>Making the phone duller cut daily use by about 39 minutes in one US student study and about 20 minutes in a pre-registered one-week Dutch study.</p><p class="src">Holte and Ferraro, 2020; Dekker and Baumgartner, 2023.</p></div>
+    <div class="fc"><div class="big">Full</div><h3>energy back after a nature break</h3><p>With 308 employees, a nature break fully restored energy; a social media break only partly; no break was worst.</p><p class="src">Grobelny and colleagues, Scientific Reports, 2024.</p></div>
+    <div class="fc"><div class="big">57%</div><h3>of students would prefer no TikTok at all</h3><p>And 58% would prefer no Instagram. Stepping away alone feels costly; stepping away together doesn't.</p><p class="src">Bursztyn and colleagues, American Economic Review, 2025.</p></div>
+    <div class="fc"><div class="big">Mixed</div><h3>results for digital detox</h3><p>Reviews find mixed effects and cravings during abstinence. That's why we offer better alternatives rather than detox challenges.</p><p class="src">Radtke and colleagues, systematic review, 2022.</p></div>
+   </div>
+   <p class="note">Several of these studies appear in the further reading for Steven Bartlett's October 2026 episode with Dr. Sahar Yousef. Each will be checked against the original paper before this page goes live.</p>
+  </div>
+ </div>
+</section>
+
+<section data-page="cowork">
+ <div class="band" style="padding-top:20px">
+  <div class="wide">
+   <div class="cohero">
+    <div class="t-mint"><h1 style="font-size:clamp(40px,5.5vw,64px)">Work well, then go home.</h1><p class="lead" style="color:#2c4136">A small wellbeing cowork at Inspiro Hub. Everyone keeps the same rhythm: four 90-minute focus blocks, real breaks, lunch together, phones on silent.</p><div class="acts"><a class="btn p" href="#cowork-book">Try a day</a></div></div>
+    <div class="ph" style="min-height:340px"><img src="img/hub-room.jpg" alt="The Hub's sunlit room"></div>
+   </div>
+   <h2 style="margin-top:44px">The shape of the day</h2>
+   <div class="ribbon" id="ribbon"></div>
+   <div class="rlab"><span>08:30</span><span>12:30</span><span>16:30</span></div>
+   <ul class="sched"><li><b>08:30</b><span>Arrive, coffee</span></li><li><b>09:00</b><span>Movement together</span></li><li><b>09:15</b><span>Focus block 1</span></li><li><b>10:45</b><span>Break, eyes off screens</span></li><li><b>11:00</b><span>Focus block 2</span></li><li><b>12:30</b><span>Lunch at one table</span></li><li><b>13:15</b><span>Focus block 3</span></li><li><b>14:45</b><span>Break, garden or tea</span></li><li><b>15:00</b><span>Focus block 4, until 16:30</span></li></ul>
+   <p style="margin-top:16px">A timer at the door counts down each block. On Monday everyone names what they'll finish by Friday; on Friday we check in.</p>
+  </div>
+ </div>
+ <div class="band lilband" id="cowork-book">
+  <div class="wide">
+   <h2>Prices</h2>
+   <div class="prices">
+    <div class="tk"><div class="tk-b"><div class="meta">Half day</div><div class="price">60 <small>lei</small></div></div></div>
+    <div class="tk"><div class="tk-b"><div class="meta">Full day</div><div class="price">90 <small>lei</small></div></div></div>
+    <div class="tk"><div class="tk-b"><div class="meta">Unlimited month</div><div class="price">900 <small>lei</small></div></div></div>
+    <div class="tk hl"><div class="tk-b"><div class="meta" style="color:#3d2a12">Founding member, 3 seats</div><div class="price">750 <small>lei / month</small></div><p style="margin:4px 0 0;font-size:14px">Fixed for 6 months, with a host party pass.</p></div></div>
+   </div>
+   <h3 style="margin-top:26px">Included</h3>
+   <ul class="ticks"><li>Speciality coffee and plenty of tea</li><li>Internet, printer and a quiet call room</li><li>Garden and the outdoor gazebo</li></ul>
+   <div class="acts"><a class="btn p" href="#cowork-book">Book a trial day</a></div>
+  </div>
+ </div>
+</section>
+
+<section data-page="hospitality">
+ <div class="band">
+  <div class="wide">
+   <h1 style="font-size:clamp(40px,6vw,64px)">Inspiro Events for teams</h1>
+   <p class="lead">Team sessions at our Hub, catering for your events, and backstage hospitality for festivals in Timișoara.</p>
+   <div class="facts"><div><b>3.5 h</b><span>team session</span></div><div><b>8 to 25</b><span>people per session</span></div><div><b>Phones</b><span>away for the whole session</span></div><div><b>2 seasons</b><span>at Zilele Timișoarei</span></div></div>
+   <div class="corp">
+    <article><div class="ph"><img src="img/cashflow-table.jpg" alt="A team around a table"></div><div class="tx"><div class="k">Team session at the Hub</div><h3>Build something together</h3><p>Small teams build parts of one structure that must stand together, then a facilitated debrief on how your team decides. From 300 lei per person.</p></div></article>
+    <article><div class="ph"><img src="img/food-table.jpg" alt="Coffee break buffet"></div><div class="tx"><div class="k">Coffee breaks and catering</div><h3>Food people remember</h3><p>Fresh, mostly plant-based menus planned by a nutritionist, for meetings, launches and workshops.</p></div></article>
+    <article><div class="ph"><img src="img/hub-room-tall.jpg" alt="The Hub room"></div><div class="tx"><div class="k">Festival hospitality</div><h3>Backstage, handled</h3><p>Riders, dressing rooms, shopping and budgets for performing artists, delivered at Zilele Timișoarei 2025 and 2026.</p></div></article>
+   </div>
+  </div>
+ </div>
+ <div class="band lilband">
+  <div class="wide" style="max-width:760px">
+   <h2>Ask for the facilitator's dossier</h2>
+   <p>We keep the session mechanics private so your team can't read the answers. HR and team leads get the full plan.</p>
+   <form id="req"><label>Name<input id="rqName" required></label><label>Company<input id="rqCo" required></label><label>Team size<select id="rqSize"><option>8 to 12</option><option>13 to 18</option><option>19 to 25</option></select></label><label>Preferred date<input id="rqDate" type="date"></label><div class="full"><button class="btn p">Send request</button></div></form>
+   <p class="ok" id="reqOk">Request noted. This is a prototype, so nothing was sent.</p>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wide">
+  <div class="fgrid">
+   <div><img src="img/inspiro-logo.png" alt="Inspiro" style="height:30px;width:auto;margin-bottom:12px"><p class="meta" style="margin:0">Inspiro Hub, Str. Constantin cel Mare 41, 300274 Timișoara<br>0744 440 824 · info@inspiro-club.com</p></div>
+   <div><h3>Visit</h3><a href="#events">What's on</a><a href="#cowork">Cowork</a><a href="#why">Why it works</a></div>
+   <div><h3>Work with us</h3><a href="#hospitality">Team sessions</a><a href="#hospitality">Catering</a><a href="#hospitality">Festivals</a></div>
+   <div><h3>Follow</h3><a href="https://instagram.com/inspiro.club">Instagram</a><a href="https://facebook.com/inspiro.club">Facebook</a><a href="https://www.linkedin.com/company/inspiro-club/">LinkedIn</a></div>
+  </div>
+  <div class="legal"><span>© 2026 Inspiro Club</span><a href="#home">Privacy</a><a href="#home">Terms</a><a href="#home">Cookies</a></div>
+ </div>
+</footer>
+
+<script>
+{
+const up=[
+ {d:'5',m:'Dec',w:'Sat 11:00',t:"Parents' brunch",x:'Slow brunch for parents; children play next door.',c:'families'},
+ {d:'11',m:'Dec',w:'Fri 19:00',t:'Phone-free dinner',x:'One long table, a seasonal menu, real conversation.',c:'evenings'},
+ {d:'14',m:'Dec',w:'Mon 17:00',t:'Cashflow for teens',x:'The money board game, free for teenagers.',c:'workshops'},
+ {d:'19',m:'Dec',w:'Sat 18:00',t:'End-of-year host party',x:'Our last evening of 2026, hosted by regulars.',c:'evenings'}];
+const weekly=[
+ {d:'Tue',m:'weekly',w:'09:00',t:'Morning yoga and coffee with Larisa',x:'A gentle start, then coffee in the garden.',c:'weekly'},
+ {d:'Thu',m:'weekly',w:'18:00',t:'Restorative yoga for women with Tamara',x:'Ninety minutes of rest and slow movement.',c:'weekly'}];
+const past=[
+ ['49','25 Oct 2026','Yard sale and music with DJ Mitru','evenings'],['48','14 Sep 2026','Financial education with Cashflow','workshops'],['47','16 Jun 2026','INSPIRO Book Club','evenings'],['46','14 Jun 2026','Financial education with Cashflow','workshops'],['45','12 Jun 2026','Brownie cooking class','workshops'],['44','26 May 2026','INSPIRO Book Club','evenings'],['43','22 May 2026','Financial education with Cashflow','workshops'],['42','14 May 2026','Fire and sound bath evening','evenings'],['41','9 May 2026','Crochet and embroidery','workshops'],['40','25 Apr 2026','Financial education with Cashflow','workshops'],['39','19 Apr 2026','Terra Issa product launch','evenings'],['38','14 Apr 2026','INSPIRO Book Club','evenings'],['37','7 Apr 2026','Recipe swap across generations','families'],['36','4 Apr 2026','Embroidery workshop','workshops'],['35','31 Mar 2026','Plant swap evening','evenings'],['34','28 Mar 2026','Financial education with Cashflow','workshops'],['33','27 Mar 2026','Dancing party','evenings'],['32','22 Mar 2026','Mandalas of light','workshops'],['31','17 Mar 2026','INSPIRO Book Club','evenings'],['30','6 Mar 2026','Fresh pasta cooking class','workshops'],['22','17 Jan 2026','Vision board 2026','workshops'],['21','28 Nov 2025','Sushi cooking party','workshops'],['20','8 Nov 2025','Brazilian party','evenings'],['19','31 Oct 2025','Halloween party','families']];
+const cats=[['all','All'],['evenings','Evenings'],['workshops','Workshops'],['families','Families'],['weekly','Weekly']];
+const cls={families:'fam',workshops:'work',weekly:'week',evenings:''};
+let cat='all',page=1;const per=8;
+const $=id=>document.getElementById(id);
+const tk=(e,i)=>`<div class="tk ${cls[e.c]}${i===0?' pin':''}"><div class="tk-d"><b>${e.d}</b><span>${e.m}</span></div><div class="tk-b"><div class="when">${e.w}</div><h3>${e.t}</h3><p>${e.x}</p><a href="#event">Details and seats</a></div></div>`;
+$('homeRail').innerHTML=up.map(tk).join('');
+const scrollBy=d=>{const r=$('homeRail');r.scrollBy({left:d*(r.firstElementChild.offsetWidth+16),behavior:'smooth'})};
+$('prev').addEventListener('click',()=>scrollBy(-1));$('next').addEventListener('click',()=>scrollBy(1));
+$('homeRail').addEventListener('keydown',e=>{if(e.key==='ArrowRight')scrollBy(1);if(e.key==='ArrowLeft')scrollBy(-1)});
+$('homeRail').tabIndex=0;
+const draw=()=>{
+ const f=a=>cat==='all'||a===cat;
+ const u=up.filter(e=>f(e.c)),w=weekly.filter(e=>f(e.c));
+ $('upcoming').innerHTML=u.length?u.map(tk).join(''):'<p class="meta">Nothing of this kind in the next weeks.</p>';
+ $('weekly').innerHTML=w.length?w.map(tk).join(''):'<p class="meta">No weekly sessions in this category.</p>';
+ const p=past.filter(e=>f(e[3]));const pages=Math.max(1,Math.ceil(p.length/per));if(page>pages)page=pages;
+ $('past').innerHTML=p.slice((page-1)*per,page*per).map(e=>`<a class="past" href="#event"><b>#${e[0]}</b><span>${e[1]}</span><h3>${e[2]}</h3></a>`).join('');
+ let h=`<button ${page===1?'disabled':''} data-p="${page-1}" aria-label="Previous page">‹</button>`;
+ for(let i=1;i<=pages;i++)h+=`<button data-p="${i}" ${i===page?'aria-current="page"':''}>${i}</button>`;
+ $('pager').innerHTML=h+`<button ${page===pages?'disabled':''} data-p="${page+1}" aria-label="Next page">›</button>`;
+ $('chips').innerHTML=cats.map(c=>`<button class="chip" data-c="${c[0]}" aria-pressed="${c[0]===cat}">${c[1]}</button>`).join('');
+};
+$('chips').addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(b){cat=b.dataset.c;page=1;draw()}});
+$('pager').addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(b&&!b.disabled){page=+b.dataset.p;draw();$('past').scrollIntoView({block:'start'})}});
+draw();
+const day=[['Arrive',30,'r'],['Move',15,'r'],['Focus',90,'f'],['Break',15,'r'],['Focus',90,'f'],['Lunch',45,'l'],['Focus',90,'f'],['Break',15,'r'],['Focus',90,'f']];
+const tot=day.reduce((a,b)=>a+b[1],0);
+$('ribbon').innerHTML=day.map(d=>`<div class="${d[2]}" style="width:${d[1]/tot*100}%" title="${d[0]}, ${d[1]} min"><span>${d[1]>=45?d[0]:''}</span></div>`).join('');
+const pages=['home','events','event','why','cowork','hospitality'];
+const route=()=>{const h=(location.hash||'#home').slice(1);const pg=pages.includes(h)?h:(h.startsWith('cowork')?'cowork':'home');
+ document.querySelectorAll('section[data-page]').forEach(s=>s.classList.toggle('on',s.dataset.page===pg));
+ document.querySelectorAll('nav a').forEach(a=>a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+pg));
+ $('nav').classList.remove('open');$('menu').setAttribute('aria-expanded','false');
+ if(pages.includes(h))window.scrollTo(0,0);else{const t=document.getElementById(h);if(t)t.scrollIntoView()}};
+addEventListener('hashchange',route);route();
+$('menu').addEventListener('click',()=>{const o=$('nav').classList.toggle('open');$('menu').setAttribute('aria-expanded',o)});
+const ok=(f,m)=>$(f).addEventListener('submit',e=>{e.preventDefault();$(m).style.display='block'});
+ok('news','newsOk');ok('req','reqOk');
+}
+</script>
+</body>
+</html>
