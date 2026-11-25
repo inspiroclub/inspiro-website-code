@@ -134,6 +134,21 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .prices .hl{background:var(--sun)}
 ul.ticks{padding-left:1.2em;margin:10px 0}
 ul.ticks li{margin-bottom:6px}
+/* about, manifesto, contact, retreats */
+.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);align-items:start;margin-top:28px}
+.story p{max-width:36em}
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.team div{background:var(--card);border-radius:20px;padding:22px}
+.mani{list-style:none;counter-reset:m;padding:0;margin:28px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.mani li{counter-increment:m;background:var(--card);border-radius:20px;padding:20px 22px 24px;font:800 clamp(20px,2vw,24px)/1.15 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
+.mani li::before{content:counter(m);display:block;font-size:15px;font-weight:600;color:var(--pu);margin-bottom:10px}
+.mani li:nth-child(5n+1){background:var(--sun)}.mani li:nth-child(5n+3){background:var(--mint)}.mani li:nth-child(5n+5){background:var(--lil)}
+.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,4vw,48px);margin-top:24px;align-items:start}
+.contact dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 18px;margin:0}
+.contact dt{font-weight:600;color:var(--soft)}.contact dd{margin:0;font-weight:600}
+.contact form{margin-top:0;background:var(--card);border-radius:22px;padding:24px}
+textarea{font:16px "Bricolage Grotesque",sans-serif;padding:12px 14px;border:1.5px solid #CDBFDB;border-radius:12px;background:#fff;color:var(--ink);min-height:130px;resize:vertical}
+.incl{columns:2;column-gap:32px}
 /* hospitality: same language, quieter */
 .corp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
 .corp article{border:1.5px solid var(--line);border-radius:22px;overflow:hidden;background:#fff}
@@ -151,7 +166,7 @@ form .full{grid-column:1/-1}
 .ok{display:none;margin-top:12px;font-weight:700;color:var(--pu)}
 footer{background:var(--ink);color:#fff;padding:44px 0 28px}
 footer{background:var(--lil);color:var(--ink)}
-.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:24px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:24px}
 footer h3{font-size:16px}
 footer a{color:var(--ink);text-decoration:none;display:block;padding:4px 0}
 .legal{border-top:1px solid #D9CCE6;margin-top:24px;padding-top:16px;font-size:14px;color:var(--soft);display:flex;gap:16px;flex-wrap:wrap}
@@ -161,8 +176,8 @@ footer a{color:var(--ink);text-decoration:none;display:block;padding:4px 0}
 .prices .hl .meta,.prices .hl .price small,.fc:nth-child(2) .src,.way:nth-child(1) .meta{color:var(--onSun)}
 section[data-page]{display:none}
 section[data-page].on{display:block}
-@media(max-width:900px){nav{display:none}nav.open{display:flex;position:absolute;left:0;right:0;top:100%;background:var(--bg);flex-direction:column;padding:8px max(5vw,16px) 16px;border-bottom:1px solid var(--line)}.menu{display:block}.mosaic{grid-template-columns:1fr 1fr}.t-sun{grid-column:span 2;grid-row:auto}.m1{grid-row:auto;min-height:300px}.ways,.corp{grid-template-columns:minmax(0,1fr)}.pastg{grid-template-columns:repeat(2,minmax(0,1fr))}.ev,.found,.cohero{grid-template-columns:minmax(0,1fr)}.card{position:static}.prices{grid-template-columns:repeat(2,minmax(0,1fr))}.fgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.mosaic{grid-template-columns:minmax(0,1fr)}.t-sun{grid-column:auto}.mosaic .ph.m2{display:none}.spa,.grid2,.find,.facts{grid-template-columns:minmax(0,1fr)}.sched{columns:1}.ribbon div span{display:none}.prices{grid-template-columns:minmax(0,1fr)}form{grid-template-columns:minmax(0,1fr)}.fgrid{grid-template-columns:minmax(0,1fr)}.tk{grid-template-columns:76px minmax(0,1fr)}.tk::before,.tk::after{left:68px}.tk-d b{font-size:30px}}
+@media(max-width:900px){.story,.contact{grid-template-columns:minmax(0,1fr)}.mani{grid-template-columns:repeat(2,minmax(0,1fr))}nav{display:none}nav.open{display:flex;position:absolute;left:0;right:0;top:100%;background:var(--bg);flex-direction:column;padding:8px max(5vw,16px) 16px;border-bottom:1px solid var(--line)}.menu{display:block}.mosaic{grid-template-columns:1fr 1fr}.t-sun{grid-column:span 2;grid-row:auto}.m1{grid-row:auto;min-height:300px}.ways,.corp{grid-template-columns:minmax(0,1fr)}.pastg{grid-template-columns:repeat(2,minmax(0,1fr))}.ev,.found,.cohero{grid-template-columns:minmax(0,1fr)}.card{position:static}.prices{grid-template-columns:repeat(2,minmax(0,1fr))}.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.team,.mani{grid-template-columns:minmax(0,1fr)}.incl{columns:1}.mosaic{grid-template-columns:minmax(0,1fr)}.t-sun{grid-column:auto}.mosaic .ph.m2{display:none}.spa,.grid2,.find,.facts{grid-template-columns:minmax(0,1fr)}.sched{columns:1}.ribbon div span{display:none}.prices{grid-template-columns:minmax(0,1fr)}form{grid-template-columns:minmax(0,1fr)}.fgrid{grid-template-columns:minmax(0,1fr)}.tk{grid-template-columns:76px minmax(0,1fr)}.tk::before,.tk::after{left:68px}.tk-d b{font-size:30px}}
 @media(prefers-reduced-motion:no-preference){.pin{animation:pin .7s cubic-bezier(.2,.9,.3,1.3) .3s both}@keyframes pin{from{transform:translateY(-14px) rotate(-3deg);opacity:0}to{transform:none;opacity:1}}}
 </style>
 </head>
@@ -173,7 +188,7 @@ section[data-page].on{display:block}
  <div class="bar">
   <a href="#home" aria-label="Inspiro home"><img src="img/inspiro-logo.png" alt="Inspiro"></a>
   <button class="menu" id="menu" aria-expanded="false" aria-controls="nav">Menu</button>
-  <nav id="nav"><a href="#events">Events</a><a href="#cowork">Cowork</a><a href="#hospitality">For teams</a><a href="#why">Why it works</a></nav>
+  <nav id="nav"><a href="#events">Events</a><a href="#retreats">Retreats</a><a href="#cowork">Cowork</a><a href="#hospitality">For teams</a><a href="#about">About</a></nav>
   <span class="lang" title="Language switch (EN / RO)">EN · RO</span>
  </div>
 </header>
@@ -219,7 +234,7 @@ section[data-page].on{display:block}
  <div class="band" style="padding-top:0">
   <div class="wide found">
    <div class="ph"><img src="img/cashflow-flipchart.jpg" alt="Petre explaining a Cashflow game round on a flipchart"></div>
-   <div><h2>A family project, run from our own table</h2><p>We are Petre and Eugenia, parents of three, from software and nutrition. We lived in Spain, Brazil and Romania and watched screens take over our children's days faster than any rule could stop.</p><p>What worked was a better evening. That is what the Hub is for.</p><a href="#why" style="font-weight:700">Why it works</a>
+   <div><h2>A family project, run from our own table</h2><p>We are Petre and Eugenia, parents of three, from software and nutrition. We lived in Spain, Brazil and Romania and watched screens take over our children's days faster than any rule could stop.</p><p>What worked was a better evening. That is what the Hub is for.</p><a href="#about" style="font-weight:700">Our story</a> · <a href="#manifesto" style="font-weight:700">The manifesto</a>
    <form id="news" style="margin-top:28px;grid-template-columns:minmax(0,1fr) auto"><label style="grid-column:auto">Get one email a month<input id="newsEmail" type="email" required placeholder="name@example.com"></label><button class="btn p" style="align-self:end">Subscribe</button></form><p class="ok" id="newsOk">Thanks. This is a prototype, so nothing was sent.</p></div>
   </div>
  </div>
@@ -329,14 +344,110 @@ section[data-page].on{display:block}
   </div>
  </div>
 </section>
+
+<section data-page="about">
+ <div class="band">
+  <div class="wide">
+   <h1 style="font-size:clamp(40px,6vw,64px)">How Inspiro started</h1>
+   <p class="lead">Three countries, three children, and one lesson: rules alone don't win against a screen. A better offline life does.</p>
+   <div class="story">
+    <div class="ph" style="aspect-ratio:4/5"><img src="img/cashflow-flipchart.jpg" alt="Petre explaining a Cashflow game round on a flipchart"></div>
+    <div>
+     <h2 style="font-size:28px">Two weeks without limits</h2>
+     <p>Between 2018 and 2022 we lived with our three children in Spain, Brazil and Romania. In 2020, in Brazil, we shared a home with a family that set no screen limits. Within two weeks our children were struggling. Later, the smartphone arguments at home taught us the same thing again.</p>
+     <p>Rules helped, but they didn't change much. What changed things was an evening good enough to put the phone down for. In our words: sustainable change happens through environments, not willpower.</p>
+     <h2 style="font-size:28px;margin-top:28px">What we are building</h2>
+     <p>An ethical, sustainable community, starting in Timișoara and growing across Romania and Europe. No manipulation, no consumerism. Children, parents, young adults and grown-ups meet in person, and young adults become contributors and leaders.</p>
+     <p>Our aim for 2030: Romanian families leading in digital wellbeing, through better real-life experiences rather than restriction.</p>
+     <div class="acts"><a class="btn p" href="#manifesto">Read the manifesto</a><a class="btn s" href="#why">Why it works</a></div>
+    </div>
+   </div>
+   <h2 style="margin-top:56px">The team</h2>
+   <div class="team">
+    <div><h3>Eugenia Dobrescu</h3><p class="meta" style="margin:0">Co-founder. Culinary and nutrition background; leads the cooking experiences.</p></div>
+    <div><h3>Petre Dobrescu</h3><p class="meta" style="margin:0">Co-founder. Software engineer and IT consultant; hosts the Cashflow game evenings.</p></div>
+   </div>
+   <p style="margin-top:20px">Want to host an evening or join the team? <a href="#contact" style="font-weight:700">Write to us</a>.</p>
+  </div>
+ </div>
+</section>
+
+<section data-page="manifesto">
+ <div class="band">
+  <div class="wide">
+   <a href="#about" class="meta">About</a>
+   <h1 style="font-size:clamp(40px,6vw,64px);margin-top:10px">The Inspiro manifesto</h1>
+   <p class="lead">What we believe about screens, people and showing up.</p>
+   <ol class="mani">
+    <li>It is necessary to just show up!</li>
+    <li>How you do anything, you do everything.</li>
+    <li>Our loved ones are more important than screens.</li>
+    <li>Technology can serve us, not enslave us.</li>
+    <li>We can use technology wisely.</li>
+    <li>Our children deserve more offline time.</li>
+    <li>Real human connections can overcome burnout.</li>
+    <li>Human disconnection can be healed through real-life connections.</li>
+    <li>Authentic experiences matter more than digital substitutes.</li>
+    <li>Together it's much easier.</li>
+    <li>Community creates belonging that screens cannot provide.</li>
+    <li>Life deserves to be lived with passion.</li>
+    <li>A life lived in balance creates happiness.</li>
+    <li>One hour offline is better than none. Be gentle with yourself.</li>
+    <li>Just show up and keep being curious.</li>
+   </ol>
+   <div class="acts" style="margin-top:28px"><a class="btn p" href="#events">Find an evening</a><a class="btn s" href="#about">Our story</a></div>
+  </div>
+ </div>
+</section>
+
+<section data-page="retreats">
+ <div class="band" style="padding-top:20px">
+  <div class="wide">
+   <div class="cohero">
+    <div class="t-mint"><h1 style="font-size:clamp(40px,5.5vw,64px)">Three days offline in the Apuseni Mountains</h1><p class="lead" style="color:#2c4136">A small retreat for up to 12 people at a mountain chalet: rest, movement, good food and conversation, with phones safely put away.</p><div class="acts"><a class="btn p" href="#retreat-interest">Get the next dates</a></div></div>
+    <div class="t-sun" style="grid-row:auto;grid-column:auto;justify-content:space-between"><div><div class="meta" style="color:var(--onSun)">Next retreat</div><h2 style="margin:6px 0 10px">Dates to be announced</h2><p style="margin:0;font-weight:600">Leave your email and you'll hear first.</p></div></div>
+   </div>
+   <div class="facts" style="margin-top:36px"><div><b>3 nights</b><span>at a chalet in the Apuseni Mountains</span></div><div><b>12 people</b><span>at most</span></div><div><b>Transport</b><span>from Timișoara, Oradea and Cluj-Napoca</span></div><div><b>Phones</b><span>kept safe for the whole stay</span></div></div>
+   <h2 style="margin-top:48px">What's included</h2>
+   <ul class="ticks incl"><li>Three nights' accommodation</li><li>Vegetarian, mostly plant-based meals and snacks</li><li>Optional yoga, breathing and meditation every day</li><li>Massage and the hot tub</li><li>Cooking workshops</li><li>Live music by the campfire</li><li>Safe keeping for your devices</li><li>Dietary needs handled when you register</li></ul>
+   <p class="meta" style="margin-top:14px">Meal times are fixed; everything else is optional. You can leave early, but without a refund. Your family gets an emergency contact for real emergencies.</p>
+   <p class="meta">Last edition: 3,300 lei early bird, 3,900 lei regular, shared room.</p>
+  </div>
+ </div>
+ <div class="band lilband" id="retreat-interest">
+  <div class="wide" style="max-width:760px">
+   <h2>Hear about the next retreat first</h2>
+   <form id="ret"><label>Name<input required></label><label>Email<input type="email" required></label><label class="full">When suits you?<select><option>Spring</option><option>Summer</option><option>Autumn</option><option>Any time</option></select></label><div class="full"><button class="btn p">Keep me posted</button></div></form>
+   <p class="ok" id="retOk">Noted. This is a prototype, so nothing was sent.</p>
+  </div>
+ </div>
+</section>
+
+<section data-page="contact">
+ <div class="band">
+  <div class="wide">
+   <h1 style="font-size:clamp(40px,6vw,64px)">Contact</h1>
+   <p class="lead">Questions about an evening, the cowork, a retreat or a team session.</p>
+   <div class="contact">
+    <div>
+     <dl><dt>Phone</dt><dd><a href="tel:+40744440824">0744 440 824</a></dd><dt>Email</dt><dd><a href="mailto:info@inspiro-club.com">info@inspiro-club.com</a></dd><dt>Hub</dt><dd>Str. Constantin cel Mare 41<br>300274 Timișoara</dd></dl>
+     <div class="acts"><a class="btn s" href="https://www.google.com/maps/search/?api=1&amp;query=Str.+Constantin+cel+Mare+41+Timisoara">Open in Maps</a><a class="btn s" href="https://chat.whatsapp.com/L4HGRqYoMuLKrSVhFfgZOE">WhatsApp community</a></div>
+    </div>
+    <form id="con"><label>Name<input required></label><label>Phone<input type="tel" required></label><label class="full">Email<input type="email" required></label><label class="full">Message<textarea required></textarea></label><div class="full"><button class="btn p">Send message</button></div></form>
+   </div>
+   <p class="ok" id="conOk">Message noted. This is a prototype, so nothing was sent.</p>
+  </div>
+ </div>
+</section>
 </main>
 
 <footer>
  <div class="wide">
   <div class="fgrid">
    <div><img src="img/inspiro-logo.png" alt="Inspiro" style="height:30px;width:auto;margin-bottom:12px"><p class="meta" style="margin:0">Inspiro Hub, Str. Constantin cel Mare 41, 300274 Timișoara<br>0744 440 824 · info@inspiro-club.com</p></div>
-   <div><h3>Visit</h3><a href="#events">What's on</a><a href="#cowork">Cowork</a><a href="#why">Why it works</a></div>
+   <div><h3>Visit</h3><a href="#events">What's on</a><a href="#retreats">Retreats</a><a href="#cowork">Cowork</a></div>
    <div><h3>Work with us</h3><a href="#hospitality">Team sessions</a><a href="#hospitality">Catering</a><a href="#hospitality">Festivals</a></div>
+   <div><h3>Inspiro</h3><a href="#about">About us</a><a href="#manifesto">Manifesto</a><a href="#why">Why it works</a><a href="#contact">Contact</a></div>
    <div><h3>Follow</h3><a href="https://instagram.com/inspiro.club">Instagram</a><a href="https://facebook.com/inspiro.club">Facebook</a><a href="https://www.linkedin.com/company/inspiro-club/">LinkedIn</a></div>
   </div>
   <div class="legal"><span>© 2026 Inspiro Club</span><a href="#home">Privacy</a><a href="#home">Terms</a><a href="#home">Cookies</a></div>
@@ -383,16 +494,16 @@ draw();
 const day=[['Arrive',30,'r'],['Move',15,'r'],['Focus',90,'f'],['Break',15,'r'],['Focus',90,'f'],['Lunch',45,'l'],['Focus',90,'f'],['Break',15,'r'],['Focus',90,'f']];
 const tot=day.reduce((a,b)=>a+b[1],0);
 $('ribbon').innerHTML=day.map(d=>`<div class="${d[2]}" style="width:${d[1]/tot*100}%" title="${d[0]}, ${d[1]} min"><span>${d[1]>=45?d[0]:''}</span></div>`).join('');
-const pages=['home','events','event','why','cowork','hospitality'];
-const route=()=>{const h=(location.hash||'#home').slice(1);const pg=pages.includes(h)?h:(h.startsWith('cowork')?'cowork':'home');
+const pages=['home','events','event','why','cowork','hospitality','about','manifesto','retreats','contact'];
+const route=()=>{const h=(location.hash||'#home').slice(1);const pg=pages.includes(h)?h:(h.startsWith('cowork')?'cowork':h.startsWith('retreat')?'retreats':'home');
  document.querySelectorAll('section[data-page]').forEach(s=>s.classList.toggle('on',s.dataset.page===pg));
- document.querySelectorAll('nav a').forEach(a=>a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+pg));
+ document.querySelectorAll('nav a').forEach(a=>a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+(pg==='manifesto'||pg==='why'?'about':pg)));
  $('nav').classList.remove('open');$('menu').setAttribute('aria-expanded','false');
  if(pages.includes(h))window.scrollTo(0,0);else{const t=document.getElementById(h);if(t)t.scrollIntoView()}};
 addEventListener('hashchange',route);route();
 $('menu').addEventListener('click',()=>{const o=$('nav').classList.toggle('open');$('menu').setAttribute('aria-expanded',o)});
 const ok=(f,m)=>$(f).addEventListener('submit',e=>{e.preventDefault();$(m).style.display='block'});
-ok('news','newsOk');ok('req','reqOk');
+ok('news','newsOk');ok('req','reqOk');ok('ret','retOk');ok('con','conOk');
 }
 </script>
 <script>
